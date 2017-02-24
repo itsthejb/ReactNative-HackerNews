@@ -10,30 +10,28 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  NavigatorIOS,
-  Text,
-  View
+  NavigatorIOS
 } from 'react-native';
 
+const ReactNative = require('react-native');
 const home = require('./Home');
-const styles = StyleSheet.create({
+var styles = ReactNative.StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex: 1
   }
 });
 
 export default class HackerNews extends Component {
   render() {
-    <NavigatorIOS
-      style={styles.container}
-      initailRoute={{
-      title: 'HackerNews',
-      component: home
-    }}/>
-  }
+    return (
+      <ReactNative.NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+          title: 'HackerNews',
+          component: home
+        }}/>
+      );
+    }
 }
 
 AppRegistry.registerComponent('HackerNews', () => HackerNews);
