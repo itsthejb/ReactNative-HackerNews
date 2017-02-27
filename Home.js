@@ -2,12 +2,14 @@
 
 import React, { Component } from 'react';
 import {
-  // AppRegistry,
+  ActivityIndicator,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+
 const ReactNative = require('react-native');
+const HomeResults = require('./HomeResults');
 
 const baseURL = "https://hacker-news.firebaseio.com/v0/";
 const styles = StyleSheet.create({
@@ -20,10 +22,22 @@ const styles = StyleSheet.create({
 });
 
 class Home extends Component {
-  render() {
-    this._fetchTopStories();
-    return <ReactNative.Text style={styles.text}>Hello World (Again)</ReactNative.Text>;
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: [],
+      hasLoaded: false
+    };
   }
+
+  render() {
+    if (!this.state.hasLoaded) {
+      this._fetchTopStories();
+      return <ActivityIndicator color="blue" size='large'/>
+    } else {
+      return <HomeResults results={this.state.results} />;
+    }
+  };
 
   _fetchTopStories() {
     fetch(baseURL + "topstories.json")
@@ -33,17 +47,18 @@ class Home extends Component {
   };
 
   _fetchItems(topStoryIDs) {
-    var results = new Map();
+    var results = [];
     var promises = [];
 
     for (var i = 0; i < 5; ++i) {
+      var index = i;
       var id = topStoryIDs[i];
       var url = baseURL + "item/" + id + ".json";
 
       var promise = fetch(url)
       .then(response => response.json())
       .then(json => {
-        results.set(i, json);
+        results.push(json);
       })
       .catch(error => console.log(error));
 
@@ -51,12 +66,11 @@ class Home extends Component {
     }
 
     Promise.all(promises).then(values => {
-      this._allItemsFetched(results);
+      this.setState({
+        hasLoaded: true,
+        results: results
+      });
     });
-  };
-
-  _allItemsFetched(results) {
-    console.log(results);
   };
 }
 
