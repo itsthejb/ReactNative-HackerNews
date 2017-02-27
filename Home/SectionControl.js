@@ -11,15 +11,20 @@ class SectionControl extends Component {
         values={HackerNews.sections}
         selectedIndex={this.props.selectedIndex}
         onChange={(event) => {
-          this.props.onChange(event.nativeEvent.selectedSegmentIndex)
+          this._didChange(event.nativeEvent.selectedSegmentIndex)
         }}
       />
     )
   }
 
-  // componentWillMount() {
-  //   this.props.onChange(HackerNews.URLForSectionIndex(this.props.selectedIndex))
-  // }
+  _didChange(index) {
+    this.props.onChange(event.nativeEvent.selectedSegmentIndex)
+  }
+
+  componentWillMount() {
+    // use initialIndex
+    this.props.onChange(this.props.initialIndex)    
+  }
 }
 
 module.exports = SectionControl
