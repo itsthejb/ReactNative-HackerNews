@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import {
+  TouchableHighlight,
   ActivityIndicator,
   ListView,
   StyleSheet,
@@ -21,9 +22,20 @@ class HomeResults extends Component {
     };
   }
 
+  renderRow(rowData, sectionID, rowID) {
+    return (
+      <TouchableHighlight underlayColor='#ddddd'>
+        <View>
+          <Text>{rowData.id}</Text>
+        </View>
+      </TouchableHighlight>
+    )
+  }
+
   render() {
-    console.log(this.props.results);
-    return null;
+    return <ListView
+      dataSource={this.state.dataSource}
+      renderRow={this.renderRow.bind(this)} />
   }
 }
 
