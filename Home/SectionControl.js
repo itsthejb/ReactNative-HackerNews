@@ -11,7 +11,7 @@ class SectionControl extends Component {
         values={HackerNews.sections}
         selectedIndex={this.props.selectedIndex}
         onChange={(event) => {
-          this._didChange(event.nativeEvent.selectedSegmentIndex)
+          this._didChange(event.nativeEvent.selectedSegmentIndex).bind(this)
         }}
       />
     )

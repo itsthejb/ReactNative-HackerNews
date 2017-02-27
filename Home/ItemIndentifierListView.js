@@ -37,14 +37,10 @@ class ItemIndentifierListView extends Component {
 
   render() {
     if (this.state.dataSource !== null) {
-      console.log("list with " + this.state.dataSource);
-
       return <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow.bind(this)} />
     } else {
-      console.log("Load " + this.props.url);
-
       this._fetchIdentifiersForURL(this.props.url)
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
