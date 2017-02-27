@@ -10,10 +10,10 @@ import {
 } from 'react-native';
 
 const ReactNative = require('react-native');
+const HackerNews = require('../Shared/HackerNews');
 const ItemIndentifierListView = require('./ItemIndentifierListView');
 const PaddingContainer = require('../Shared/PaddingContainer');
 
-const baseURL = "https://hacker-news.firebaseio.com/v0/";
 const Styles = StyleSheet.create({
   text: {
     color: 'black',
@@ -49,7 +49,7 @@ class Home extends Component {
   };
 
   _fetchTopStories() {
-    fetch(baseURL + "topstories.json")
+    fetch(HackerNews.baseURL + "topstories.json")
       .then(response => response.json())
       .then(json => {
         this.setState({
@@ -61,4 +61,5 @@ class Home extends Component {
   };
 }
 
+const BaseURL = "https://hacker-news.firebaseio.com/v0/";
 module.exports = Home;
