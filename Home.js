@@ -40,7 +40,7 @@ class Home extends Component {
 
     if (!this.state.hasLoaded) {
       this._fetchTopStories();
-      child = <ActivityIndicator color="blue" size='large'/>;
+      child = <ActivityIndicator size='large'/>;
     } else {
       child = <HomeResults stye={Styles} results={this.state.results} />;
     }
