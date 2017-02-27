@@ -12,7 +12,6 @@ import {
 const ReactNative = require('react-native');
 const HackerNews = require('../Shared/HackerNews');
 const ItemIndentifierListView = require('./ItemIndentifierListView');
-const PaddingContainer = require('../Shared/PaddingContainer');
 
 const Styles = StyleSheet.create({
   text: {
@@ -45,7 +44,14 @@ class Home extends Component {
       child = <ItemIndentifierListView stye={Styles} results={this.state.results} />;
     }
 
-    return <PaddingContainer child={child}/>;
+    return (
+      <View style={
+        {
+          paddingTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+          flex: 1
+        }
+      }>{child}</View>
+    )
   };
 
   _fetchTopStories() {
