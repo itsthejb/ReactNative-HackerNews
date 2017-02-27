@@ -18,12 +18,12 @@ class SectionControl extends Component {
   }
 
   _didChange(index) {
-    this.props.onChange(event.nativeEvent.selectedSegmentIndex)
+    this.props.onChange(index)
   }
 
   componentWillMount() {
     // use initialIndex
-    this.props.onChange(this.props.initialIndex)    
+    this.props.onChange(this.props.initialIndex)
   }
 }
 
