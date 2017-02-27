@@ -11,7 +11,7 @@ import {
 
 const ReactNative = require('react-native');
 const ItemIndentifierListView = require('./ItemIndentifierListView');
-const PaddingContainer = require('./PaddingContainer');
+const PaddingContainer = require('../Shared/PaddingContainer');
 
 const baseURL = "https://hacker-news.firebaseio.com/v0/";
 const Styles = StyleSheet.create({

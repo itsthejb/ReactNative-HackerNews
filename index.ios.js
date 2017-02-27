@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 const ReactNative = require('react-native');
-const home = require('./Home');
+const home = require('./Home/Home');
 var styles = ReactNative.StyleSheet.create({
   container: {
     flex: 1
