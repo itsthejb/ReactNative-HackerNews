@@ -29,14 +29,25 @@ const Styles = StyleSheet.create({
 
 class Home extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      results: [],
-      hasLoaded: false
-    };
+      selectedIndex: null
+    }
   }
 
   render() {
+    return (
+      <View style={Styles.container}>
+        <SectionControl
+          selectedIndex={this.state.selectedIndex}
+          onChange={(url) => {
+
+        }
+        }/>
+        {child}
+      </View>
+    )
+
     var child = null;
 
     if (!this.state.hasLoaded) {
