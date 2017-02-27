@@ -1,11 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {
-  View,
-  Navigator,
-  Text
-} from 'react-native';
+import { View, Navigator, Text } from 'react-native';
 
 class PaddingContainer extends Component {
   render () {

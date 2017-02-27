@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 const ReactNative = require('react-native');
 
-class HomeResults extends Component {
+class ItemIndentifierListView extends Component {
   constructor(props) {
     super(props);
     var dataSource = new ListView.DataSource({
@@ -39,4 +39,4 @@ class HomeResults extends Component {
   }
 }
 
-module.exports = HomeResults;
+module.exports = ItemIndentifierListView;

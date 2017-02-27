@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 const ReactNative = require('react-native');
-const HomeResults = require('./HomeResults');
+const ItemIndentifierListView = require('./ItemIndentifierListView');
 const PaddingContainer = require('./PaddingContainer');
 
 const baseURL = "https://hacker-news.firebaseio.com/v0/";
@@ -42,7 +42,7 @@ class Home extends Component {
       this._fetchTopStories();
       child = <ActivityIndicator size='large'/>;
     } else {
-      child = <HomeResults stye={Styles} results={this.state.results} />;
+      child = <ItemIndentifierListView stye={Styles} results={this.state.results} />;
     }
 
     return <PaddingContainer child={child}/>;
