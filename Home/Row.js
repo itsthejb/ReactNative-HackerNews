@@ -10,6 +10,7 @@ import {
 
 const HackerNews = require('../Shared/HackerNews');
 
+// https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 class Row extends Component {
   constructor(props) {
     super(props)
@@ -32,6 +33,7 @@ class Row extends Component {
   }
 
   _fetchItem() {
+    this.promise =
     fetch(HackerNews.baseURL + "item/" + this.props.identifier + ".json")
     .then(response => response.json())
     .then(json => {
