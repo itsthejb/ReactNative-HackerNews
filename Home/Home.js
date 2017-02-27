@@ -36,34 +36,21 @@ class Home extends Component {
   }
 
   render() {
-    return (
-      <View style={Styles.container}>
-        <SectionControl
-          selectedIndex={this.state.selectedIndex}
-          onChange={(index) => {
-            var url = HackerNews.URLForSectionIndex(index)
-            console.log(url);
-        }
-        }/>
-        {child}
-      </View>
+    var sectionControl = (
+      <SectionControl
+        selectedIndex={this.state.selectedIndex}
+        onChange={(index) => {this.setState({selectedIndex: index})}
+      }/>
     )
 
-    var child = null;
-
-    if (!this.state.hasLoaded) {
-      this._fetchTopStories();
-      child = <ActivityIndicator size='large'/>;
-    } else {
+    var child = null
+    if (this.state.selectedIndex) {
       child = <ItemIndentifierListView stye={Styles} results={this.state.results} />;
     }
 
     return (
       <View style={Styles.container}>
-        <SectionControl onChange={(url) => {
-
-        }
-        }/>
+        {sectionControl}
         {child}
       </View>
     )
