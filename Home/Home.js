@@ -12,6 +12,7 @@ import {
 const ReactNative = require('react-native');
 const HackerNews = require('../Shared/HackerNews');
 const ItemIndentifierListView = require('./ItemIndentifierListView');
+const SectionControl = require('./SectionControl');
 
 const Styles = StyleSheet.create({
   text: {
@@ -47,6 +48,10 @@ class Home extends Component {
 
     return (
       <View style={Styles.container}>
+        <SectionControl onChange={(url) => {
+
+        }
+        }/>
         {child}
       </View>
     )
