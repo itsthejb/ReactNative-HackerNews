@@ -20,9 +20,10 @@ class ItemIndentifierListView extends Component {
         rowHasChanged: (r1, r2) => r1.id != r2.id
       });
     this.state = {
-      hasLoaded: false,
-      itemCache: {},
-      dataSource: dataSource.cloneWithRows(this.props.results),
+      dataSource: dataSource
+      // hasLoaded: false,
+      // itemCache: {},
+      // dataSource: dataSource.cloneWithRows(this.props.results),
     };
   }
 
