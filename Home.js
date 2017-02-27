@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import {
+  Navigator,
   ActivityIndicator,
   StyleSheet,
   Text,
@@ -10,14 +11,18 @@ import {
 
 const ReactNative = require('react-native');
 const HomeResults = require('./HomeResults');
+const PaddingContainer = require('./PaddingContainer');
 
 const baseURL = "https://hacker-news.firebaseio.com/v0/";
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
   text: {
     color: 'black',
     backgroundColor: 'blue',
     fontSize: 30,
     margin: 80
+  },
+  container: {
+    flex: 1
   }
 });
 
@@ -31,12 +36,16 @@ class Home extends Component {
   }
 
   render() {
+    var child = null;
+
     if (!this.state.hasLoaded) {
       this._fetchTopStories();
-      return <ActivityIndicator color="blue" size='large'/>
+      child = <ActivityIndicator color="blue" size='large'/>;
     } else {
-      return <HomeResults results={this.state.results} />;
+      child = <HomeResults stye={Styles} results={this.state.results} />;
     }
+
+    return <PaddingContainer child={child}/>;
   };
 
   _fetchTopStories() {

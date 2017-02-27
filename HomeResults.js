@@ -24,7 +24,7 @@ class HomeResults extends Component {
 
   renderRow(rowData, sectionID, rowID) {
     return (
-      <TouchableHighlight underlayColor='#ddddd'>
+      <TouchableHighlight underlayColor='#f1c40f'>
         <View>
           <Text>{rowData.id}</Text>
         </View>
