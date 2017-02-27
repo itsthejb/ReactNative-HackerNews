@@ -38,6 +38,7 @@ class Home extends Component {
   render() {
     var sectionControl = (
       <SectionControl
+        initialIndex={2}
         selectedIndex={this.state.selectedIndex}
         onChange={(index) => {this.setState({selectedIndex: index})}
       }/>
