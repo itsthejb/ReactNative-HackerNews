@@ -40,8 +40,9 @@ class Home extends Component {
       <View style={Styles.container}>
         <SectionControl
           selectedIndex={this.state.selectedIndex}
-          onChange={(url) => {
-
+          onChange={(index) => {
+            var url = HackerNews.URLForSectionIndex(index)
+            console.log(url);
         }
         }/>
         {child}

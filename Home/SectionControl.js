@@ -10,17 +10,15 @@ class SectionControl extends Component {
       <SegmentedControlIOS
         values={HackerNews.sections}
         selectedIndex={this.props.selectedIndex}
-        onChange={this.props.onChange}
+        onChange={(event) => {
+          this.props.onChange(event.nativeEvent.selectedSegmentIndex)
+        }}
       />
     )
   }
 
   // componentWillMount() {
-  //   this._callBackWithSectionIndex(this.state.selectedSegmentIndex)
-  // }
-  //
-  // _callBackWithSectionIndex(index) {
-  //   this.props.onChange(HackerNews.URLForSectionIndex(index))
+  //   this.props.onChange(HackerNews.URLForSectionIndex(this.props.selectedIndex))
   // }
 }
 
