@@ -21,6 +21,7 @@ const Styles = StyleSheet.create({
     margin: 80
   },
   container: {
+    paddingTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
     flex: 1
   }
 });
@@ -45,12 +46,9 @@ class Home extends Component {
     }
 
     return (
-      <View style={
-        {
-          paddingTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
-          flex: 1
-        }
-      }>{child}</View>
+      <View style={Styles.container}>
+        {child}
+      </View>
     )
   };
 
