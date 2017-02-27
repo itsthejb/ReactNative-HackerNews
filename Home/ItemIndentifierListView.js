@@ -16,29 +16,42 @@ const Row = require('./Row');
 class ItemIndentifierListView extends Component {
   constructor(props) {
     super(props);
-    this.state = {dataSource: null};
+    this.state = {
+      url: this.props.url,
+      dataSource: null
+    };
   }
 
   renderRow(rowData, sectionID, rowID) {
     return (<Row identifier={rowData}/>)
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.url != this.state.url) {
+      this.setState({
+        url: nextProps.url,
+        dataSource: null
+      })
+    }
+  }
+
   render() {
     if (this.state.dataSource !== null) {
+      console.log("list with " + this.state.dataSource);
+
       return <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow.bind(this)} />
     } else {
+      console.log("Load " + this.props.url);
+
+      this._fetchIdentifiersForURL(this.props.url)
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
           <ActivityIndicator size="large"/>
         </View>
       )
     }
-  }
-
-  componentWillMount() {
-    this._fetchIdentifiersForURL(this.props.url)
   }
 
   _fetchIdentifiersForURL(url) {

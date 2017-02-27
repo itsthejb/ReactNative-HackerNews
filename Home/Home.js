@@ -36,11 +36,15 @@ class Home extends Component {
   }
 
   render() {
+    console.log("Home render");
+    
     var sectionControl = (
       <SectionControl
         initialIndex={2}
         selectedIndex={this.state.selectedIndex}
-        onChange={(index) => {this.setState({selectedIndex: index})}
+        onChange={(index) => {
+          this.setState({selectedIndex: index})
+        }
       }/>
     )
 
@@ -48,6 +52,7 @@ class Home extends Component {
     if (this.state.selectedIndex !== null) {
       var url = HackerNews.URLForSectionIndex(this.state.selectedIndex)
       child = <ItemIndentifierListView stye={Styles} url={url}/>
+      console.log(child.props);
     }
 
     return (
