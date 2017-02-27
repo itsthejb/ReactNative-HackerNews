@@ -51,35 +51,13 @@ class Home extends Component {
   _fetchTopStories() {
     fetch(baseURL + "topstories.json")
       .then(response => response.json())
-      .then(json => this._fetchItems(json))
-      .catch(error => console.log(error));
-  };
-
-  _fetchItems(topStoryIDs) {
-    var results = [];
-    var promises = [];
-
-    for (var i = 0; i < 5; ++i) {
-      var index = i;
-      var id = topStoryIDs[i];
-      var url = baseURL + "item/" + id + ".json";
-
-      var promise = fetch(url)
-      .then(response => response.json())
       .then(json => {
-        results.push(json);
+        this.setState({
+          hasLoaded: true,
+          results: json
+        })
       })
       .catch(error => console.log(error));
-
-      promises.push(promise);
-    }
-
-    Promise.all(promises).then(values => {
-      this.setState({
-        hasLoaded: true,
-        results: results
-      });
-    });
   };
 }
 
