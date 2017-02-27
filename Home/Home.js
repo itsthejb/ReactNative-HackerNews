@@ -57,18 +57,6 @@ class Home extends Component {
       </View>
     )
   };
-
-  _fetchTopStories() {
-    fetch(HackerNews.baseURL + "topstories.json")
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          hasLoaded: true,
-          results: json
-        })
-      })
-      .catch(error => console.log(error));
-  };
 }
 
 const BaseURL = "https://hacker-news.firebaseio.com/v0/";

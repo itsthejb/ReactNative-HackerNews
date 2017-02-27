@@ -16,15 +16,7 @@ const Row = require('./Row');
 class ItemIndentifierListView extends Component {
   constructor(props) {
     super(props);
-    var dataSource = new ListView.DataSource({
-        rowHasChanged: (r1, r2) => r1.id != r2.id
-      });
-    this.state = {
-      dataSource: dataSource
-      // hasLoaded: false,
-      // itemCache: {},
-      // dataSource: dataSource.cloneWithRows(this.props.results),
-    };
+    this.state = {dataSource: null};
   }
 
   renderRow(rowData, sectionID, rowID) {
@@ -32,10 +24,36 @@ class ItemIndentifierListView extends Component {
   }
 
   render() {
-    return <ListView
-      dataSource={this.state.dataSource}
-      renderRow={this.renderRow.bind(this)} />
+    if (this.state.dataSource !== null) {
+      return <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this.renderRow.bind(this)} />
+    } else {
+      return (
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <ActivityIndicator size="large"/>
+        </View>
+      )
+    }
   }
+
+  componentWillMount() {
+    this._fetchIdentifiersForURL(this.props.url)
+  }
+
+  _fetchIdentifiersForURL(url) {
+    fetch(url + ".json")
+      .then(response => response.json())
+      .then(identifiers => {
+        var dataSource = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1.id != r2.id
+          });
+        this.setState({
+          dataSource: dataSource.cloneWithRows(identifiers)
+        })
+      })
+      .catch(error => console.log(error));
+  };
 }
 
 module.exports = ItemIndentifierListView;
