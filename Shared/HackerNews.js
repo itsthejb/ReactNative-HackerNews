@@ -4,11 +4,19 @@ class HackerNews {
   }
 
   static get sections() {
-    return ["New", "Top", "Best"]
+    return Object.keys(this._sectionMap)
   }
 
   static URLForSectionIndex(index) {
-    return this.baseURL
+    return this.baseURL + this._sectionMap[this.sections[index]]
+  }
+
+  static get _sectionMap() {
+    return {
+      New: "newstories",
+      Top: "topstories",
+      Best: "beststories"
+    }
   }
 }
 
