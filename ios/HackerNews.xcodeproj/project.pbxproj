@@ -24,6 +24,10 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		FF6DA7471E6585140092513B /* RNInfiniteScrollViewChildren.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6DA7401E6585140092513B /* RNInfiniteScrollViewChildren.m */; };
+		FF6DA7481E6585140092513B /* RNInfiniteScrollViewChildrenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6DA7421E6585140092513B /* RNInfiniteScrollViewChildrenManager.m */; };
+		FF6DA7491E6585140092513B /* RNTableViewChildren.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6DA7441E6585140092513B /* RNTableViewChildren.m */; };
+		FF6DA74A1E6585140092513B /* RNTableViewChildrenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6DA7461E6585140092513B /* RNTableViewChildrenManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,13 +101,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTAnimation;
 		};
-		5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
-			remoteInfo = "RCTAnimation-tvOS";
-		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -143,6 +140,14 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		FF6DA73F1E6585140092513B /* RNInfiniteScrollViewChildren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNInfiniteScrollViewChildren.h; path = ../Submodules/UITableView/ios/RNInfiniteScrollViewChildren.h; sourceTree = "<group>"; };
+		FF6DA7401E6585140092513B /* RNInfiniteScrollViewChildren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNInfiniteScrollViewChildren.m; path = ../Submodules/UITableView/ios/RNInfiniteScrollViewChildren.m; sourceTree = "<group>"; };
+		FF6DA7411E6585140092513B /* RNInfiniteScrollViewChildrenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNInfiniteScrollViewChildrenManager.h; path = ../Submodules/UITableView/ios/RNInfiniteScrollViewChildrenManager.h; sourceTree = "<group>"; };
+		FF6DA7421E6585140092513B /* RNInfiniteScrollViewChildrenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNInfiniteScrollViewChildrenManager.m; path = ../Submodules/UITableView/ios/RNInfiniteScrollViewChildrenManager.m; sourceTree = "<group>"; };
+		FF6DA7431E6585140092513B /* RNTableViewChildren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNTableViewChildren.h; path = ../Submodules/UITableView/ios/RNTableViewChildren.h; sourceTree = "<group>"; };
+		FF6DA7441E6585140092513B /* RNTableViewChildren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNTableViewChildren.m; path = ../Submodules/UITableView/ios/RNTableViewChildren.m; sourceTree = "<group>"; };
+		FF6DA7451E6585140092513B /* RNTableViewChildrenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNTableViewChildrenManager.h; path = ../Submodules/UITableView/ios/RNTableViewChildrenManager.h; sourceTree = "<group>"; };
+		FF6DA7461E6585140092513B /* RNTableViewChildrenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNTableViewChildrenManager.m; path = ../Submodules/UITableView/ios/RNTableViewChildrenManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +256,7 @@
 		13B07FAE1A68108700A75B9A /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				FF6DA73E1E6585060092513B /* TableView */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -274,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */,
-				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +337,21 @@
 				00E356EE1AD99517003FC87E /* HackerNewsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FF6DA73E1E6585060092513B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				FF6DA73F1E6585140092513B /* RNInfiniteScrollViewChildren.h */,
+				FF6DA7401E6585140092513B /* RNInfiniteScrollViewChildren.m */,
+				FF6DA7411E6585140092513B /* RNInfiniteScrollViewChildrenManager.h */,
+				FF6DA7421E6585140092513B /* RNInfiniteScrollViewChildrenManager.m */,
+				FF6DA7431E6585140092513B /* RNTableViewChildren.h */,
+				FF6DA7441E6585140092513B /* RNTableViewChildren.m */,
+				FF6DA7451E6585140092513B /* RNTableViewChildrenManager.h */,
+				FF6DA7461E6585140092513B /* RNTableViewChildrenManager.m */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,13 +537,6 @@
 			remoteRef = 5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5E9157351DD0AC6500FF2AA8 /* libRCTAnimation-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRCTAnimation-tvOS.a";
-			remoteRef = 5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -589,7 +602,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6DA7481E6585140092513B /* RNInfiniteScrollViewChildrenManager.m in Sources */,
+				FF6DA7491E6585140092513B /* RNTableViewChildren.m in Sources */,
+				FF6DA7471E6585140092513B /* RNInfiniteScrollViewChildren.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				FF6DA74A1E6585140092513B /* RNTableViewChildrenManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
