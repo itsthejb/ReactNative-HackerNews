@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import ReactNative from 'react-native'
 import ArticleCell from './ArticleCell'
 import ArticleView from './ArticleView'
+import FlexActivityView from '../Shared/FlexActivityView'
 import {
   TouchableHighlight,
-  ActivityIndicator,
   ListView,
   StyleSheet,
   Text,
@@ -76,11 +76,7 @@ class ArticleListView extends Component {
         renderRow={this.renderRow.bind(this)}
       />
     } else {
-      return (
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <ActivityIndicator size="large"/>
-        </View>
-      )
+      return <FlexActivityView/>
     }
   }
 
