@@ -22,7 +22,7 @@ class ItemIndentifierListView extends Component {
   }
 
   renderRow(rowData, sectionID, rowID) {
-    return (<Row identifier={rowData}/>)
+    return (<Row index={rowID} identifier={rowData}/>)
   }
 
   componentWillReceiveProps(nextProps) {
