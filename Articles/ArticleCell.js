@@ -58,7 +58,9 @@ class ArticleCell extends Component {
       />
     } else {
       this._fetchItem()
-      return <ActivityIndicator size='small'/>;
+      return <View style={{height: 66, justifyContent: "center"}}>
+        <ActivityIndicator size='small'/>
+      </View>
     }
   }
 
@@ -87,7 +89,7 @@ class ArticleContentView extends Component {
       <TouchableHighlight
         style={Styles.container}
         onPress={this.props.onPress.bind(this)}
-        underlayColor='#f1c40f'>
+        underlayColor='#3498db'>
 
         <View style={Styles.contentView}>
           <Text style={Styles.title}>{item.title}</Text>
