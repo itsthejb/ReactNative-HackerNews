@@ -23,7 +23,7 @@ const Styles = StyleSheet.create({
   }
 });
 
-class Row extends Component {
+class ArticleCell extends Component {
   constructor(props) {
     super(props)
     this.state = { item: null }
@@ -70,4 +70,4 @@ class Row extends Component {
   }
 }
 
-module.exports = Row;
+module.exports = ArticleCell

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import ReactNative from 'react-native'
 import HackerNews from '../Shared/HackerNews'
-import ItemIndentifierListView from './ItemIndentifierListView'
+import ArticleCellIdentifierListView from '../Articles/ArticleCellIdentifierListView'
 import SectionControl from './SectionControl'
 import {
   Navigator,
@@ -48,7 +48,7 @@ class Home extends Component {
     var child = null
     if (this.state.selectedIndex !== null) {
       var url = HackerNews.URLForSectionIndex(this.state.selectedIndex)
-      child = <ItemIndentifierListView
+      child = <ArticleCellIdentifierListView
         navigator={this.props.navigator}
         stye={Styles}
         url={url}

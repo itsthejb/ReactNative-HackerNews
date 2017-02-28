@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import ReactNative from 'react-native'
-import Row from './Row'
-import ArticleView from '../Article/ArticleView'
+import ArticleCell from './ArticleCell'
+import ArticleView from './ArticleView'
 import {
   TouchableHighlight,
   ActivityIndicator,
@@ -13,7 +13,7 @@ import {
   View
 } from 'react-native';
 
-class ItemIndentifierListView extends Component {
+class ArticleCellIdentifierListView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class ItemIndentifierListView extends Component {
 
   renderRow(rowData, sectionID, rowID) {
     return (
-      <Row
+      <ArticleCell
         index={rowID}
         identifier={rowData}
         onPress={(item) => {
@@ -92,4 +92,4 @@ class ItemIndentifierListView extends Component {
   };
 }
 
-module.exports = ItemIndentifierListView;
+module.exports = ArticleCellIdentifierListView;
