@@ -12,14 +12,21 @@ import {
 } from 'react-native'
 
 const Styles = StyleSheet.create({
-  text: {
+  title: {
     // color: 'black',
     // backgroundColor: 'blue',
     // fontSize: 30,
     // margin: 80
   },
+  subtitle: {
+    // numberOfLines: 1,
+    // ellipsizeMode: 'tail'
+  },
   container: {
     minHeight: 44
+  },
+  contentView: {
+    padding: 8
   }
 });
 
@@ -37,16 +44,10 @@ class ArticleCell extends Component {
 
   render() {
     if (this.state.item) {
-      return (
-        <TouchableHighlight
-          style={Styles.container}
-          onPress={this._onPress.bind(this)}
-          underlayColor='#f1c40f'>
-          <View>
-            <Text>{this.state.item.title}</Text>
-          </View>
-        </TouchableHighlight>
-      )
+      return <ArticleContentView
+        item={this.state.item}
+        onPress={this._onPress.bind(this)}
+      />
     } else {
       this._fetchItem()
       return <ActivityIndicator size='small'/>;
@@ -67,6 +68,31 @@ class ArticleCell extends Component {
       this.setState({item: res.body})
       this.request = null
     });
+  }
+}
+
+class ArticleContentView extends Component {
+  render() {
+    var item = this.props.item
+    return (
+      <TouchableHighlight
+        style={Styles.container}
+        onPress={this.props.onPress.bind(this)}
+        underlayColor='#f1c40f'>
+
+        <View style={{padding: 8, flexDirection: "column"}}>
+          <Text style={Styles.title}>{item.title}</Text>
+
+          <View style={{flexDirection: "row"}}>
+            <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{item.by}</Text>
+            <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{item.time}</Text>
+          </View>
+
+          <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{item.url}</Text>
+        </View>
+
+      </TouchableHighlight>
+    )
   }
 }
 
