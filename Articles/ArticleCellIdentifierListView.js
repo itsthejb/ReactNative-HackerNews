@@ -40,6 +40,16 @@ class ArticleCellIdentifierListView extends Component {
     )
   }
 
+  renderSeparator(sectionID, rowID, adjacentHighlighted) {
+    return <View>
+      <View key={rowID} style={{
+        backgroundColor: 'blue',
+        paddingLeft: 50,
+        height: 1
+      }}/>
+    </View>
+  }
+
   // this seems wrong/ugly...
   componentWillReceiveProps(nextProps) {
     if (nextProps.url != this.state.url) {
@@ -62,6 +72,7 @@ class ArticleCellIdentifierListView extends Component {
     if (this.state.dataSource !== null) {
       return <ListView
         dataSource={this.state.dataSource}
+        renderSeparator={this.renderSeparator.bind(this)}
         renderRow={this.renderRow.bind(this)}
       />
     } else {
