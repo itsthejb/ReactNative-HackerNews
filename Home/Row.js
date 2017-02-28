@@ -29,11 +29,18 @@ class Row extends Component {
     this.state = { item: null }
   }
 
+  _onPress() {
+    if (this.state.item !== null) {
+      this.props.onPress(this.state.item)
+    }
+  }
+
   render() {
     if (this.state.item) {
       return (
         <TouchableHighlight
           style={Styles.container}
+          onPress={this._onPress.bind(this)}
           underlayColor='#f1c40f'>
           <View>
             <Text>{this.state.item.title}</Text>
@@ -49,13 +56,13 @@ class Row extends Component {
   componentWillUnmount() {
     if (this.request !== null) {
       this.request.abort()
+      this.request = null
     }
   }
 
   _fetchItem() {
     this.request = Request
     .get(HackerNews.baseURL + "item/" + this.props.identifier + ".json")
-    // .accept('json')
     .end((err, res) => {
       this.setState({item: res.body})
       this.request = null

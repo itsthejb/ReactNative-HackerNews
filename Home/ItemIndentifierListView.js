@@ -22,9 +22,18 @@ class ItemIndentifierListView extends Component {
   }
 
   renderRow(rowData, sectionID, rowID) {
-    return (<Row index={rowID} identifier={rowData}/>)
+    return (
+      <Row
+        index={rowID}
+        identifier={rowData}
+        onPress={(item) => {
+          console.log(item);
+        }}
+      />
+    )
   }
 
+  // this seems wrong/ugly...
   componentWillReceiveProps(nextProps) {
     if (nextProps.url != this.state.url) {
       this.setState({
@@ -34,13 +43,21 @@ class ItemIndentifierListView extends Component {
     }
   }
 
+  componentDidMount() {
+    this._fetchIdentifiersForURL()
+  }
+
+  componentDidUpdate() {
+    this._fetchIdentifiersForURL()
+  }
+
   render() {
     if (this.state.dataSource !== null) {
       return <ListView
         dataSource={this.state.dataSource}
-        renderRow={this.renderRow.bind(this)} />
+        renderRow={this.renderRow.bind(this)}
+      />
     } else {
-      this._fetchIdentifiersForURL(this.props.url)
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
           <ActivityIndicator size="large"/>
@@ -49,18 +66,22 @@ class ItemIndentifierListView extends Component {
     }
   }
 
-  _fetchIdentifiersForURL(url) {
-    fetch(url + ".json")
+  _fetchIdentifiersForURL() {
+    if (this.state.dataSource === null) {
+      fetch(this.state.url + ".json")
       .then(response => response.json())
       .then(identifiers => {
         var dataSource = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1.id != r2.id
-          });
+          rowHasChanged: (r1, r2) => r1.id != r2.id
+        });
         this.setState({
           dataSource: dataSource.cloneWithRows(identifiers)
         })
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error)
+      });
+    }
   };
 }
 
