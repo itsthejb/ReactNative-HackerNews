@@ -1,0 +1,3 @@
+[submodule "Submodules/UITableView"]
+	path = Submodules/UITableView
+	url = git@github.com:wix/list-view-experiments.git
