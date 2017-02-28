@@ -2,11 +2,13 @@
 
 import React, { Component } from 'react'
 import {
-  Text
+  WebView
 } from 'react-native'
 
 export default class Article extends Component {
   render() {
-    return <Text>foo</Text>
+    return <WebView source={{
+      uri: this.props.item.url
+    }}/>
   }
 }

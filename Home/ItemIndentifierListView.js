@@ -29,8 +29,11 @@ class ItemIndentifierListView extends Component {
         identifier={rowData}
         onPress={(item) => {
           this.props.navigator.push({
-            title: "foo",
-            component: ArticleView
+            title: item.title,
+            component: ArticleView,
+            passProps: {
+              item: item
+            }
           })
         }}
       />
