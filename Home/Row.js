@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import {
   View,
+  StyleSheet,
   ActivityIndicator,
   TouchableHighlight,
   Text
@@ -11,7 +12,18 @@ import {
 import HackerNews from '../Shared/HackerNews'
 var request = require('superagent');
 
-// https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
+const Styles = StyleSheet.create({
+  text: {
+    // color: 'black',
+    // backgroundColor: 'blue',
+    // fontSize: 30,
+    // margin: 80
+  },
+  container: {
+    minHeight: 44
+  }
+});
+
 class Row extends Component {
   constructor(props) {
     super(props)
@@ -21,7 +33,9 @@ class Row extends Component {
   render() {
     if (this.state.item) {
       return (
-        <TouchableHighlight underlayColor='#f1c40f'>
+        <TouchableHighlight
+          style={Styles.container}
+          underlayColor='#f1c40f'>
           <View>
             <Text>{this.state.item.title}</Text>
           </View>
