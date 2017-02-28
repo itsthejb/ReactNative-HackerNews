@@ -1,6 +1,10 @@
 'use strict';
 
 import React, { Component } from 'react';
+import ReactNative from 'react-native'
+import HackerNews from '../Shared/HackerNews'
+import ItemIndentifierListView from './ItemIndentifierListView'
+import SectionControl from './SectionControl'
 import {
   Navigator,
   ActivityIndicator,
@@ -8,11 +12,6 @@ import {
   Text,
   View
 } from 'react-native';
-
-const ReactNative = require('react-native');
-const HackerNews = require('../Shared/HackerNews');
-const ItemIndentifierListView = require('./ItemIndentifierListView');
-const SectionControl = require('./SectionControl');
 
 const Styles = StyleSheet.create({
   text: {
