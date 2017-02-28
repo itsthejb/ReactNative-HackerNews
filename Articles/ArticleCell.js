@@ -87,9 +87,10 @@ class ArticleContentView extends Component {
 
     return (
       <TouchableHighlight
+        activeOpacity={0.5}
         style={Styles.container}
         onPress={this.props.onPress.bind(this)}
-        underlayColor='#3498db'>
+        underlayColor={0x0000001A}>
 
         <View style={Styles.contentView}>
           <Text style={Styles.title}>{item.title}</Text>
