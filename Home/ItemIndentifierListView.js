@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import ReactNative from 'react-native'
+import Row from './Row'
 import {
   TouchableHighlight,
   ActivityIndicator,
@@ -9,9 +11,6 @@ import {
   Text,
   View
 } from 'react-native';
-
-const ReactNative = require('react-native');
-const Row = require('./Row');
 
 class ItemIndentifierListView extends Component {
   constructor(props) {

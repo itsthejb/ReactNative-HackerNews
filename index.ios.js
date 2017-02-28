@@ -7,6 +7,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import ReactNative from 'react-native'
+import Home from './Home/Home'
 import {
   Navigator,
   AppRegistry,
@@ -14,8 +16,6 @@ import {
   NavigatorIOS
 } from 'react-native';
 
-const ReactNative = require('react-native');
-const home = require('./Home/Home');
 var styles = ReactNative.StyleSheet.create({
   container: {
     flex: 1
@@ -29,7 +29,7 @@ export default class HackerNews extends Component {
         style={styles.container}
         initialRoute={{
           title: 'HackerNews',
-          component: home
+          component: Home
         }}/>
       );
     }

@@ -1,6 +1,8 @@
 'use string';
 
 import React, { Component } from 'react';
+import Request from 'superagent'
+import HackerNews from '../Shared/HackerNews'
 import {
   View,
   StyleSheet,
@@ -8,9 +10,6 @@ import {
   TouchableHighlight,
   Text
 } from 'react-native'
-// import { request } from 'superagent'
-import HackerNews from '../Shared/HackerNews'
-var request = require('superagent');
 
 const Styles = StyleSheet.create({
   text: {
@@ -54,7 +53,7 @@ class Row extends Component {
   }
 
   _fetchItem() {
-    this.request = request
+    this.request = Request
     .get(HackerNews.baseURL + "item/" + this.props.identifier + ".json")
     // .accept('json')
     .end((err, res) => {

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { SegmentedControlIOS } from 'react-native'
-const HackerNews = require('../Shared/HackerNews');
+import HackerNews from '../Shared/HackerNews'
 
 class SectionControl extends Component {
   render() {
