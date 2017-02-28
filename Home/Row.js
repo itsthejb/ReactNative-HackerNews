@@ -6,9 +6,10 @@ import {
   ActivityIndicator,
   TouchableHighlight,
   Text
-} from 'react-native';
-
-const HackerNews = require('../Shared/HackerNews');
+} from 'react-native'
+// import { request } from 'superagent'
+import HackerNews from '../Shared/HackerNews'
+var request = require('superagent');
 
 // https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 class Row extends Component {
@@ -33,15 +34,13 @@ class Row extends Component {
   }
 
   _fetchItem() {
-    this.promise =
-    fetch(HackerNews.baseURL + "item/" + this.props.identifier + ".json")
-    .then(response => response.json())
-    .then(json => {
+    request
+    .get(HackerNews.baseURL + "item/" + this.props.identifier + ".json")
+    .end((err, res) => {
       this.setState({
-        item: json
+        item: res.json()
       })
     })
-    .catch(error => console.log(error));
   }
 }
 
