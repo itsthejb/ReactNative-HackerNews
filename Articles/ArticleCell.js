@@ -14,20 +14,27 @@ import {
 
 const Styles = StyleSheet.create({
   title: {
-    // color: 'black',
-    // backgroundColor: 'blue',
-    // fontSize: 30,
-    // margin: 80
+    fontSize: 14,
+    paddingVertical: 4
   },
   subtitle: {
-    // numberOfLines: 1,
-    // ellipsizeMode: 'tail'
+    fontSize: 10,
+    color: "gray",
+    paddingVertical: 4
+  },
+  subtitlePad: {
+    fontSize: 10,
+    color: "gray",
+    paddingVertical: 4,
+    paddingRight: 8
   },
   container: {
     minHeight: 44
   },
   contentView: {
-    padding: 8
+    paddingHorizontal: 8,
+    paddingTop: 4,
+    paddingBottom: 4
   }
 });
 
@@ -82,12 +89,12 @@ class ArticleContentView extends Component {
         onPress={this.props.onPress.bind(this)}
         underlayColor='#f1c40f'>
 
-        <View style={{padding: 8, flexDirection: "column"}}>
+        <View style={Styles.contentView}>
           <Text style={Styles.title}>{item.title}</Text>
 
           <View style={{flexDirection: "row"}}>
-            <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{item.by}</Text>
-            <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{
+            <Text numberOfLines={1} style={[Styles.subtitle, Styles.subtitlePad]}>{item.by}</Text>
+            <Text numberOfLines={1} style={Styles.subtitle}>{
               Moment(item.time, "X").fromNow()
             }</Text>
           </View>

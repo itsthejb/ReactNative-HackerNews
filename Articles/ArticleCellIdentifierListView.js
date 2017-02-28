@@ -41,7 +41,9 @@ class ArticleCellIdentifierListView extends Component {
   }
 
   renderSeparator(sectionID, rowID, adjacentHighlighted) {
-    return <View style={{
+    return <View
+      key={sectionID + "" + rowID}
+      style={{
         backgroundColor: 'lightgray',
         marginLeft: 8,
         height: 1
