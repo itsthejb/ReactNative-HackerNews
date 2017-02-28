@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Request from 'superagent'
 import HackerNews from '../Shared/HackerNews'
+import Moment from 'moment'
 import {
   View,
   StyleSheet,
@@ -74,6 +75,7 @@ class ArticleCell extends Component {
 class ArticleContentView extends Component {
   render() {
     var item = this.props.item
+
     return (
       <TouchableHighlight
         style={Styles.container}
@@ -85,7 +87,9 @@ class ArticleContentView extends Component {
 
           <View style={{flexDirection: "row"}}>
             <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{item.by}</Text>
-            <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{item.time}</Text>
+            <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{
+              Moment(item.time, "X").fromNow()
+            }</Text>
           </View>
 
           <Text numberOfLines={1} ellipsizeMode='tail' style={Styles.subtitle}>{item.url}</Text>

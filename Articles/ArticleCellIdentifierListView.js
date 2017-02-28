@@ -41,13 +41,11 @@ class ArticleCellIdentifierListView extends Component {
   }
 
   renderSeparator(sectionID, rowID, adjacentHighlighted) {
-    return <View>
-      <View key={rowID} style={{
-        backgroundColor: 'blue',
-        paddingLeft: 50,
+    return <View style={{
+        backgroundColor: 'lightgray',
+        marginLeft: 8,
         height: 1
       }}/>
-    </View>
   }
 
   // this seems wrong/ugly...
