@@ -27,6 +27,7 @@ export default class HackerNews extends Component {
     return (
       <ReactNative.NavigatorIOS
         style={styles.container}
+        barTintColor="#f39c12"
         initialRoute={{
           title: 'HackerNews',
           component: Home

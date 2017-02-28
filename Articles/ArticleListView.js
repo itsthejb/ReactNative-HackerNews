@@ -13,7 +13,7 @@ import {
   View
 } from 'react-native';
 
-class ArticleCellIdentifierListView extends Component {
+class ArticleListView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -103,4 +103,4 @@ class ArticleCellIdentifierListView extends Component {
   };
 }
 
-module.exports = ArticleCellIdentifierListView;
+module.exports = ArticleListView;

@@ -10,6 +10,7 @@ class SectionControl extends Component {
       <SegmentedControlIOS
         values={HackerNews.sections}
         selectedIndex={this.props.selectedIndex}
+        tintColor="#3498db"
         onChange={(event) => {
           this._didChange(event.nativeEvent.selectedSegmentIndex)
         }}
