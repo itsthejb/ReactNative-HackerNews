@@ -48,7 +48,11 @@ class Home extends Component {
     var child = null
     if (this.state.selectedIndex !== null) {
       var url = HackerNews.URLForSectionIndex(this.state.selectedIndex)
-      child = <ItemIndentifierListView stye={Styles} url={url}/>
+      child = <ItemIndentifierListView
+        navigator={this.props.navigator}
+        stye={Styles}
+        url={url}
+      />
     }
 
     return (

@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import ReactNative from 'react-native'
 import Row from './Row'
+import ArticleView from '../Article/ArticleView'
 import {
   TouchableHighlight,
   ActivityIndicator,
@@ -27,7 +28,10 @@ class ItemIndentifierListView extends Component {
         index={rowID}
         identifier={rowData}
         onPress={(item) => {
-          console.log(item);
+          this.props.navigator.push({
+            title: "foo",
+            component: ArticleView
+          })
         }}
       />
     )
