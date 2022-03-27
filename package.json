@@ -8,7 +8,7 @@
   "dependencies": {
     "flow": "^0.2.3",
     "moment": "^2.17.1",
-    "react": "15.3.2",
+    "react": "15.7.0",
     "react-native": "0.34.1",
     "redux": "^3.6.0",
     "superagent": "^3.5.0"
